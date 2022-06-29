@@ -11,8 +11,9 @@
     </parent>
 
     <groupId>de.borisskert</groupId>
-    <artifactId>spring-static-web-content-example</artifactId>
+    <artifactId>spring-static-web-content-example-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <name>spring-static-web-content-example</name>
     <description>Demo project for Spring Boot</description>
@@ -21,26 +22,7 @@
         <java.version>17</java.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
+    <modules>
+        <module>backend</module>
+    </modules>
 </project>
