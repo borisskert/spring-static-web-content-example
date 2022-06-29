@@ -8,7 +8,7 @@ import {GreetingComponent} from './greeting/greeting.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GreetingComponent
+    GreetingComponent,
   ],
   imports: [
     BrowserModule,
