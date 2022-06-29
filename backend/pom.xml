@@ -10,13 +10,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-static-web-content-example</artifactId>
+    <artifactId>spring-static-web-content-example-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <name>backend</name>
 
     <dependencies>
         <dependency>
             <groupId>de.borisskert</groupId>
-            <artifactId>frontend</artifactId>
+            <artifactId>spring-static-web-content-example-frontend</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
