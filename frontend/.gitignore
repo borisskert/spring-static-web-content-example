@@ -43,3 +43,6 @@ Thumbs.db
 
 # com.github.eirslett.frontend-maven-plugin
 node/
+
+# Cypress
+cypress/videos/

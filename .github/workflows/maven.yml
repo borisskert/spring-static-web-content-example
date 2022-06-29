@@ -20,5 +20,5 @@ jobs:
           distribution: adopt
           java-version: 17
 
-      - name: Build package
-        run: ./mvnw -Pci -B -DskipTests package
+      - name: Build package and run all tests
+        run: ./mvnw -Pci -B verify
