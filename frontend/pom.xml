@@ -10,9 +10,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>example-frontend</artifactId>
+    <artifactId>frontend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
   <build>
     <plugins>
@@ -51,7 +50,7 @@
 
     <resources>
       <resource>
-        <directory>./dist/frontend</directory>
+        <directory>./dist/frontend-example</directory>
         <targetPath>static</targetPath>
       </resource>
     </resources>
