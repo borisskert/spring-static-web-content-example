@@ -22,3 +22,8 @@ jobs:
 
       - name: Build package and run all tests
         run: ./mvnw -Pci -B verify
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: webapp
+          path: backend/target/spring-static-web-content-example-backend.jar

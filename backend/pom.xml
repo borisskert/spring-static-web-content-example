@@ -45,6 +45,8 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -62,7 +64,7 @@
                             <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.parent.basedir}/frontend/target/classes/</directory>
+                                    <directory>${project.parent.basedir}/frontend/dist/frontend-example/</directory>
                                 </resource>
                             </resources>
                         </configuration>
