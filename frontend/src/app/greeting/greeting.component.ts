@@ -9,13 +9,13 @@ import {BehaviorSubject} from "rxjs";
 })
 export class GreetingComponent {
 
-  public readonly greeting: BehaviorSubject<string> = new BehaviorSubject<string>("😇 Not called already...");
+  public readonly greeting: BehaviorSubject<string> = new BehaviorSubject<string>('😇 Not called already...');
 
   constructor(private readonly greetingService: GreetingService) {
   }
 
   requestGreeting() {
-    this.greeting.next(`😳 Requesting...`);
+    this.greeting.next('😳 Requesting...');
 
     this.greetingService.get()
       .subscribe(

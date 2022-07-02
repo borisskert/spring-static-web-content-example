@@ -11,7 +11,7 @@ export class GreetingService {
   }
 
   get(): Observable<string> {
-    return this.http.get("/api/greeting", {
+    return this.http.get('/api/greeting', {
       responseType: "text"
     });
   }
