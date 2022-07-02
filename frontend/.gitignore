@@ -46,3 +46,4 @@ node/
 
 # Cypress
 cypress/videos/
+cypress/screenshots/
