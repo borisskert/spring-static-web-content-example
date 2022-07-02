@@ -1,0 +1,30 @@
+---
+name: Build jar and deploy to heroku
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_test_deploy:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: adopt
+          java-version: 17
+
+      - name: Build package
+        run: ./mvnw -Pci -B verify
+
+      - name: Deploy image
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "spring-static-web-content"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
