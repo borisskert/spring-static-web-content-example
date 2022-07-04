@@ -11,14 +11,16 @@ describe('GreetingComponent', () => {
   let debugElement: DebugElement;
   let compiledElement: HTMLElement
   let httpMock: HttpTestingController;
+  let terminalLine: Element;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [GreetingComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(GreetingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -27,6 +29,8 @@ describe('GreetingComponent', () => {
     compiledElement = fixture.nativeElement as HTMLElement;
 
     httpMock = TestBed.inject(HttpTestingController);
+
+    terminalLine = compiledElement.querySelector('.test-terminal-line-greeting') as Element;
   });
 
   it('should create', () => {
@@ -34,8 +38,7 @@ describe('GreetingComponent', () => {
   });
 
   it('should show empty state', () => {
-    const terminalLine = compiledElement.querySelector('.test-terminal-line-greeting');
-    expect(terminalLine?.textContent).toContain('😇 Not called already...');
+    expect(terminalLine?.textContent).toEqual('😇 Not called already...');
   });
 
   describe('when click on request-greeting button', () => {
@@ -49,8 +52,7 @@ describe('GreetingComponent', () => {
     it('should switch terminal text', () => {
       fixture.detectChanges();
 
-      const terminalLine = compiledElement.querySelector('.test-terminal-line-greeting');
-      expect(terminalLine?.textContent).toContain('😳 Requesting...');
+      expect(terminalLine?.textContent).toEqual('😳 Requesting...');
     });
 
     it('should display response body text', waitForAsync(() => {
@@ -63,13 +65,12 @@ describe('GreetingComponent', () => {
       fixture.whenStable().then(() => {
         fixture.detectChanges();
 
-        const terminalLine = compiledElement.querySelector('.test-terminal-line-greeting');
-        expect(terminalLine?.textContent).toContain('🥸 Mock Greeting Response');
+        expect(terminalLine?.textContent).toEqual('🥳 Mock Greeting Response');
 
         httpMock.verify();
       });
 
-      mockReq.flush('🥸 Mock Greeting Response');
+      mockReq.flush('Mock Greeting Response');
     }));
   });
 });
