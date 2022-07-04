@@ -60,17 +60,15 @@ describe('GreetingComponent', () => {
       expect(mockReq.cancelled).toBeFalsy();
       expect(mockReq.request.responseType).toEqual('text');
 
+      mockReq.flush('Mock Greeting Response 🤡');
+
       fixture.detectChanges();
 
-      fixture.whenStable().then(() => {
-        fixture.detectChanges();
-
-        expect(terminalLine?.textContent).toEqual('🥳 Mock Greeting Response');
-
-        httpMock.verify();
-      });
-
-      mockReq.flush('Mock Greeting Response');
+      expect(terminalLine?.textContent).toEqual('🥳 Mock Greeting Response 🤡');
     }));
+  });
+
+  afterAll(() => {
+    httpMock.verify();
   });
 });
