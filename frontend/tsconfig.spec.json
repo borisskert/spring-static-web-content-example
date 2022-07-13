@@ -3,12 +3,16 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "module": "CommonJs",
+    "module": "commonjs",
     "types": [
-      "jest"
-    ]
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
+    ],
+    "esModuleInterop": true
   },
   "files": [
+    "test-setup.ts",
     "src/polyfills.ts"
   ],
   "include": [
